@@ -1,0 +1,5 @@
+services:
+     client_service:
+        class: AppBundle\Services\ApiClientService
+        arguments: [%symfony_api.end_point%, "@session"]
+

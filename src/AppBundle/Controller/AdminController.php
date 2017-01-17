@@ -18,8 +18,12 @@ class AdminController extends Controller
 //            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
 //        ));
 
+        $api = $this->get('client_service')->findOrganizations('1');
+        //$parameters = array('name'=>'test org1'); 
+        //$api = $this->get('client_service')->createOrganization('1', $parameters);
+        //var_dump($api);
         return $this->render('AppBundle:Admin:dashboard.html.twig',
-                array());
+                array('client_id'=>$client_id));
 
 
 

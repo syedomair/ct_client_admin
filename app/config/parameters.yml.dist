@@ -17,3 +17,5 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    #symfony_api.end_point: 'http://ct_api.localhost/app_dev.php/'
+    symfony_api.end_point: 'http://master-7rqtwti-wo54nacijpcqq.us.platform.sh/'

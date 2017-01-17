@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/css/fullcalendar.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/css/matrix-style.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/css/matrix-media.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/css/jquery.gritter.css') }}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block body %}
+
+<body>
+
+{% block header %}
+    {% include('AppBundle:Base:header.html.twig') %}
+{% endblock %}
+
+{% block side_bar %}
+    {% include('AppBundle:Base:side_bar.html.twig') %}
+{% endblock %}
+
+<!--main-container-part-->
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+  </div>
+<!--End-breadcrumbs-->
+    <H2>Organizations</H2>
+    {#{dump(organizations)}#}
+    <table id="datatable" class="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Client Name</td>
+           </tr> 
+         </thead>
+         {% for organization in organizations %}
+         <tbody>
+             <tr>
+                 <td>{{organization['id']}}</td>
+                 <td>{{organization['name']}}</td>
+                 <td>{{organization['client_name']}}</td>
+             </tr>
+         </tbody>
+         {% endfor %}
+    </table>
+</div>
+
+<!--end-main-container-part-->
+
+{% block footer %}
+    {% include('AppBundle:Base:footer.html.twig') %}
+{% endblock %}
+
+</body>
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="{{ asset('bundles/app/js/excanvas.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.ui.custom.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.flot.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.flot.resize.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.peity.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/fullcalendar.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.dashboard.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.gritter.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.interface.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.chat.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.validate.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.form_validation.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.wizard.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.uniform.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/select2.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.popover.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/jquery.dataTables.min.js') }}"></script> 
+<script src="{{ asset('bundles/app/js/matrix.tables.js') }}"></script> 
+<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {  
+    //$('#datatable').DataTable();
+});
+
+</script>
+{% endblock %}
